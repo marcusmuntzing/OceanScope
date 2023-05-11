@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongodb": "^5.4.0",
+    "mongoose": "^7.1.1",
+    "nodemon": "^2.0.22"
+  },
+  "type": "module",
+  "name": "package",
+  "version": "1.0.0",
+  "main": "node mongo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

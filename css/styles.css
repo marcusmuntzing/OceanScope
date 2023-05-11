@@ -1,0 +1,846 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    scroll-behavior: smooth;
+    outline: none;
+    font-family: Poppins, sans-serif;
+}
+
+:root {
+    --bg-color: white;
+    --text-color: #333;
+    --main-color: #754ef9;
+    --white-color: #fdfdfd;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    display: flex;
+}
+
+
+body{
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 7%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    transition: .5s;
+}
+
+.header.sticky{
+    background: var(--bg-color);
+    box-shadow: 0 .1rem 1rem var(--shadow-color);
+}
+
+
+.logo{
+    font-size: 2.5rem;
+    color: var(--main-color);
+    font-weight: 600;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+
+.navbar a{
+    position: relative;
+    font-size: 2rem;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-right: 3.5rem;
+    transition: 0.15s;
+}
+
+.navbar a:hover{
+    color: var(--main-color);
+}
+
+.header.sticky .navbar a{
+    color: var(--text-color);
+}
+
+.header.sticky .navbar a.active{
+ color: var(--main-color);
+}
+
+
+.navbar a.active::before{
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--main-color);
+}
+
+
+.header.sticky .navbar a::before{
+    background: var(--main-color);
+    opacity: .7;
+}
+
+
+section{
+    min-height: 100vh;
+    padding: 2rem 7% 2rem;
+}
+
+.home{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.home-content{
+    max-width: 44rem;
+}
+
+.home-content h3{
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: .3;
+}
+
+.home-content h1{
+    font-size: 5.6rem;
+    font-weight: 700;
+    margin-bottom: .3rem;
+}
+
+.home-content p{
+    font-size: 1.6rem;
+}
+
+.home-content .social-media a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: transparent;
+    border: .2rem solid var(--main-color);
+    border-radius: 50%;
+    box-shadow: 0 .2rem .5rem var(--shadow-color);
+    font-size: 2rem;
+    color: var(--main-color);
+    margin: 2.5rem 1.5rem 3rem 0;
+    transition: .5s ease;
+}
+
+.home-content .social-media a:hover{
+    background: var(--main-color);
+    color: var(--white-color);
+
+}
+
+.btn{
+    z-index: 3;
+    margin-top: 40px;
+    display: inline-block;
+    padding: 1.2rem 2.8rem;
+    background: var(--main-color);
+    border-radius: .6rem;
+    box-shadow: 0 .2rem .5rem var(--shadow-color) ;
+    font-size: 1.6rem;
+    color: var(--white-color);
+    letter-spacing: .1rem;
+    font-weight: 600;
+    transition: .5s ease;
+    border: .2rem solid transparent;
+}
+
+
+.btn:hover{
+    background: transparent;
+    color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+
+.home-img{
+    margin-left: 20%;
+}
+
+.home-img img{
+    width: 700px;
+    height: 500px;
+}
+
+
+
+/* SECTION ABOUT SENSOR */
+
+
+.sensor-content{
+    margin-top: 100px;
+}
+
+
+.sensor-content .title{
+    text-align: center;
+    margin:40px auto 30px;
+}
+
+.sensor-content .title h1{
+    font-size: 50px;
+}
+
+.sensor-content .title p{
+    font-size: 25px;
+}
+
+
+/* FLIP CARD EFFECT */
+
+
+.card-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 100px;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 350px;
+  perspective: 1000px;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-image: linear-gradient(#1BFFFF  ,#2E3192);
+  border-radius: 20px;
+}
+
+
+.image-container{
+    width: 100%;
+    height: 200px;
+    border-radius: 50%;
+}
+
+
+.image-container img{
+    object-fit: fill;
+    padding: 45px;
+    height: 220px;
+
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-image: linear-gradient(dodgerblue,black);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+
+.flip-card-back .back-header img{
+    width: 50%;
+    margin-top: 20px;
+}
+
+.flip-card-back .back-header{
+    height: 45%;
+    text-align: center;
+}
+
+
+.flip-card-front h2{
+    font-size: 25px;
+    margin-top: 30px;
+    color: white;
+}
+
+.flip-card-back{
+    border-radius: 20px;
+}
+
+.back-footer p{
+    line-height: 20px;
+    font-weight: 500;
+}
+
+
+.background{
+    position: relative;
+    background: linear-gradient(109.6deg, rgb(121, 203, 202) 11.2%, rgb(119, 161, 211) 91.1%);
+}
+
+.custom-shape-divider-bottom-1683134175 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1683134175 svg {
+    z-index: 0;
+    position: relative;
+    display: block;
+    width: calc(126% + 1.3px);
+    height: 400px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1683134175 .shape-fill {
+    fill: #FFFFFF;
+}
+
+.custom-shape-divider-top-1683136841 {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1683136841 svg {
+    position: relative;
+    display: block;
+    width: calc(150% + 1.3px);
+    height: 350px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1683136841 .shape-fill {
+    fill: #FFFFFF;
+}
+
+#map{
+    height: 400px;
+    width: 100%;
+}
+
+
+#floating-panel {
+    position: absolute;
+    top: 10px;
+    left: 25%;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+    text-align: center;
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+
+
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: var(--main-color);
+    height: auto;
+    font-family: Poppins, sans-serif;
+    padding-top: 40px;
+    color: #fff;
+    border-top-left-radius: 50px;
+}
+
+
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+
+.social-media-footer{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+
+
+
+.footer-bottom{
+    width: 100vw;
+    padding: 20px 0;
+    text-align: center;
+}
+
+
+
+.footer-bottom span{
+    text-transform: uppercase;
+    opacity: .4;
+    font-weight: 200;
+}
+
+.footerNav{
+    margin-top: 5px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.footerNav li{
+    list-style: none;
+    margin: 0 75px;
+    font-size: 20px;
+    font-weight: bold;
+    max-width: 500px;
+}
+
+.footerNav a{
+    color: white;
+    transition: color 0.15s ease;
+}
+
+.footerNav a:hover{
+    color: black;
+}
+
+
+.footer-image img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    color: white;
+}
+
+
+.data-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.data-content h1{
+    font-size: 50px;
+    margin-bottom: 75px;
+}
+
+
+.hidden{
+    filter: blur(2px);
+    transform: translateX(-100%) ;
+    opacity: 0;
+    transition: all 1s;
+}
+
+.show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+
+.back-video{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+
+}
+
+
+
+
+
+
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Droid Serif", serif;
+}
+
+.shopping-cart img{
+  max-width: 100%;
+}
+
+.cf:before, .cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}
+
+.wrap {
+  width: 90%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 5% 0;
+  margin-bottom: 5em;
+}
+
+.projTitle {
+  font-weight: bold;
+  text-align: center;
+  font-size: 2em;
+  padding: 1em 0;
+  border-bottom: 1px solid #dadada;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.projTitle span {
+  font-weight: normal;
+  font-style: italic;
+  text-transform: lowercase;
+  color: #777;
+}
+
+.heading {
+  padding: 1em 0;
+  border-bottom: 1px solid #D0D0D0;
+}
+.heading h1 {
+  font-size: 2em;
+  float: left;
+}
+.heading a.continue:link, .heading a.continue:visited {
+  text-decoration: none;
+  letter-spacing: -.015em;
+  font-size: .75em;
+  padding: 1em;
+  color: #fff;
+  background: #82ca9c;
+  font-weight: bold;
+  border-radius: 50px;
+  float: right;
+  text-align: right;
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -ms-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+}
+.heading a.continue:after {
+  content: "\276f";
+  padding: .5em;
+  position: relative;
+  right: 0;
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  -ms-transition: all 0.15s linear;
+  -o-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+.heading a.continue:hover, .heading a.continue:focus, .heading a.continue:active {
+  background: #f69679;
+}
+.heading a.continue:hover:after, .heading a.continue:focus:after, .heading a.continue:active:after {
+  right: -10px;
+}
+
+.tableHead {
+  display: table;
+  width: 100%;
+  font-size: .75em;
+}
+.tableHead li {
+  display: table-cell;
+  padding: 1em 0;
+  text-align: center;
+}
+.tableHead li.prodHeader {
+  text-align: left;
+}
+
+.cart {
+  padding: 1em 0;
+}
+.cart .items {
+  display: block;
+  width: 100%;
+  vertical-align: middle;
+  padding: 1.5em;
+  border-bottom: 1px solid #fafafa;
+}
+.cart .items.even {
+  background: #fafafa;
+}
+.cart .items .infoWrap {
+  display: table;
+  width: 100%;
+}
+.cart .items .cartSection {
+  display: table-cell;
+  vertical-align: middle;
+}
+.cart .items .cartSection .itemNumber {
+  font-size: .75em;
+  color: #777;
+  margin-bottom: .5em;
+}
+.cart .items .cartSection h3 {
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .025em;
+}
+
+.cart .items .cartSection p {
+  display: inline-block;
+  font-size: .85em;
+  color: #777777;
+  font-family: "Montserrat", sans-serif;
+}
+
+
+
+.cart .items .cartSection .itemImg {
+  width: 4em;
+  float: left;
+}
+.cart .items .cartSection.qtyWrap, .cart .items .cartSection.prodTotal {
+  text-align: right;
+}
+.cart .items .cartSection.qtyWrap p, .cart .items .cartSection.prodTotal p {
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+
+.cart .items .cartSection .itemImg {
+  width: 8em;
+  display: inline;
+  padding-right: 1em;
+    object-fit: cover;
+}
+
+.special {
+  display: block;
+  font-family: "Montserrat", sans-serif;
+}
+
+
+.special .specialContent {
+  padding: 1em 1em 0;
+  display: block;
+  margin-top: .5em;
+  border-top: 1px solid #dadada;
+}
+.special .specialContent:before {
+  content: "\21b3";
+  font-size: 1.5em;
+  margin-right: 1em;
+  color: #6f6f6f;
+  font-family: helvetica, arial, sans-serif;
+}
+
+
+.btn:link, .btn:visited {
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -.015em;
+  font-size: 1em;
+  padding: 1em 3em;
+  color: #fff;
+  background: #82ca9c;
+  font-weight: bold;
+  border-radius: 50px;
+  float: right;
+  text-align: right;
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -ms-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+}
+.btn:after {
+  content: "\276f";
+  padding: .5em;
+  position: relative;
+  right: 0;
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  -ms-transition: all 0.15s linear;
+  -o-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+.btn:hover, .btn:focus, .btn:active {
+  background: #f69679;
+}
+
+.btn:hover:after, .btn:focus:after, .btn:active:after {
+  right: -10px;
+}
+
+
+/* TOTAL AND CHECKOUT  */
+.subtotal {
+  float: right;
+  width: 35%;
+}
+.subtotal .totalRow {
+  padding: .5em;
+  text-align: right;
+}
+.subtotal .totalRow.final {
+  font-size: 1.25em;
+  font-weight: bold;
+}
+.subtotal .totalRow span {
+  display: inline-block;
+  padding: 0 0 0 1em;
+  text-align: right;
+}
+.subtotal .totalRow .label {
+  font-family: "Montserrat", sans-serif;
+  font-size: .85em;
+  text-transform: uppercase;
+  color: #777;
+}
+.subtotal .totalRow .value {
+  letter-spacing: -.025em;
+  width: 35%;
+}
+
+@media only screen and (max-width: 39.375em) {
+  .wrap {
+    width: 98%;
+    padding: 2% 0;
+  }
+
+  .projTitle {
+    font-size: 1.5em;
+    padding: 10% 5%;
+  }
+
+  .heading {
+    padding: 1em;
+    font-size: 90%;
+  }
+
+  .cart .items .cartSection {
+    width: 90%;
+    display: block;
+    float: left;
+  }
+  .cart .items .cartSection.qtyWrap {
+    width: 10%;
+    text-align: center;
+    padding: .5em 0;
+    float: right;
+  }
+  .cart .items .cartSection.qtyWrap:before {
+    content: "QTY";
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    padding: .25em;
+    font-size: .75em;
+  }
+  .cart .items .cartSection.prodTotal, .cart .items .cartSection.removeWrap {
+    display: none;
+  }
+  .cart .items .cartSection .itemImg {
+    width: 25%;
+  }
+
+  .promoCode, .subtotal {
+    width: 100%;
+  }
+
+  a.btn.continue {
+    width: 100%;
+    text-align: center;
+  }
+}

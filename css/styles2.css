@@ -1,0 +1,731 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    scroll-behavior: smooth;
+    outline: none;
+    font-family: Poppins, sans-serif;
+}
+
+:root {
+    --bg-color: white;
+    --text-color: #333;
+    --main-color: #754ef9;
+    --white-color: #fdfdfd;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    display: flex;
+}
+
+
+body{
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 7%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    transition: .5s;
+}
+
+.header.sticky{
+    background: var(--bg-color);
+    box-shadow: 0 .1rem 1rem var(--shadow-color);
+}
+
+
+.logo{
+    font-size: 3rem;
+    color: var(--main-color);
+    font-weight: 600;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+
+.navbar a{
+    position: relative;
+    font-size: 2rem;
+    color: white;
+    font-weight: 500;
+    margin-right: 3.5rem;
+    transition: 0.15s;
+}
+
+.navbar a:hover{
+    color: var(--main-color);
+}
+
+.header.sticky .navbar a{
+    color: var(--text-color);
+}
+
+.header.sticky .navbar a.active{
+ color: var(--main-color);
+}
+
+
+.navbar a.active::before{
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--main-color);
+}
+
+
+.header.sticky .navbar a::before{
+    background: var(--main-color);
+    opacity: .7;
+}
+
+
+section{
+    padding: 2rem 7% 2rem;
+    width: 100%;
+}
+
+.home{
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.home-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.home-content h3{
+    color: white;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: .3;
+}
+
+.home-content h1{
+    color: var(--main-color);
+    font-size: 7.6rem;
+    font-weight: 700;
+    margin-bottom: .3rem;
+}
+
+.home-content p{
+    text-align: center;
+    max-width: 70vh;
+    font-size: 2.1rem;
+    color: white;
+}
+
+.home-content .social-media a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: transparent;
+    border: .2rem solid var(--main-color);
+    border-radius: 50%;
+    box-shadow: 0 .2rem .5rem var(--shadow-color);
+    font-size: 2rem;
+    color: var(--main-color);
+    margin: 2.5rem 1.5rem 3rem 0;
+    transition: .5s ease;
+}
+
+.home-content .social-media a:hover{
+    background: var(--main-color);
+    color: var(--white-color);
+
+}
+
+.btn{
+    z-index: 3;
+    margin-top: 40px;
+    display: inline-block;
+    padding: 1.2rem 2.8rem;
+    background: var(--main-color);
+    border-radius: .6rem;
+    box-shadow: 0 .2rem .5rem var(--shadow-color) ;
+    font-size: 1.8rem;
+    color: var(--white-color);
+    letter-spacing: .1rem;
+    font-weight: 600;
+    transition: .5s ease;
+    border: .2rem solid transparent;
+}
+
+
+.btn:hover{
+    background: transparent;
+    color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+
+.home-img{
+    margin-left: 20%;
+}
+
+.home-img img{
+    width: 700px;
+    height: 500px;
+}
+
+
+
+/* SECTION ABOUT SENSOR */
+
+
+.sensor-content{
+    margin-top: 100px;
+}
+
+
+.sensor-content .title{
+    text-align: center;
+    margin:40px auto 30px;
+}
+
+.sensor-content .title h1{
+    font-size: 50px;
+}
+
+.sensor-content .title p{
+    font-size: 25px;
+}
+
+
+/* FLIP CARD EFFECT */
+
+
+.card-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 100px;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 350px;
+  perspective: 1000px;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-image: linear-gradient(#1BFFFF  ,#2E3192);
+  border-radius: 20px;
+}
+
+
+.image-container{
+    width: 100%;
+    height: 200px;
+    border-radius: 50%;
+}
+
+
+.image-container img{
+    object-fit: fill;
+    padding: 45px;
+    height: 220px;
+
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-image: linear-gradient(dodgerblue,black);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+
+.flip-card-back .back-header img{
+    width: 50%;
+    margin-top: 20px;
+}
+
+.flip-card-back .back-header{
+    height: 45%;
+    text-align: center;
+}
+
+
+.flip-card-front h2{
+    font-size: 25px;
+    margin-top: 30px;
+    color: white;
+}
+
+.flip-card-back{
+    border-radius: 20px;
+}
+
+.back-footer p{
+    line-height: 20px;
+    font-weight: 500;
+}
+
+
+.background{
+    position: relative;
+    background: linear-gradient(109.6deg, rgb(121, 203, 202) 11.2%, rgb(119, 161, 211) 91.1%);
+}
+
+.custom-shape-divider-bottom-1683134175 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1683134175 svg {
+    z-index: 0;
+    position: relative;
+    display: block;
+    width: calc(126% + 1.3px);
+    height: 400px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1683134175 .shape-fill {
+    fill: #FFFFFF;
+}
+
+.custom-shape-divider-top-1683136841 {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1683136841 svg {
+    position: relative;
+    display: block;
+    width: calc(150% + 1.3px);
+    height: 350px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1683136841 .shape-fill {
+    fill: #FFFFFF;
+}
+
+#map{
+    height: 400px;
+    width: 100%;
+}
+
+
+#floating-panel {
+    position: absolute;
+    top: 10px;
+    left: 25%;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+    text-align: center;
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+
+
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: var(--main-color);
+    height: auto;
+    font-family: Poppins, sans-serif;
+    padding-top: 40px;
+    color: #fff;
+    border-top-left-radius: 50px;
+}
+
+
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+
+.social-media-footer{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+
+
+
+.footer-bottom{
+    width: 100vw;
+    padding: 20px 0;
+    text-align: center;
+}
+
+
+
+.footer-bottom span{
+    text-transform: uppercase;
+    opacity: .4;
+    font-weight: 200;
+}
+
+.footerNav{
+    margin-top: 5px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.footerNav li{
+    list-style: none;
+    margin: 0 75px;
+    font-size: 20px;
+    font-weight: bold;
+    max-width: 500px;
+}
+
+.footerNav a{
+    color: white;
+    transition: color 0.15s ease;
+}
+
+.footerNav a:hover{
+    color: black;
+}
+
+
+.footer-image img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    color: white;
+}
+
+
+.data-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.data-content h1{
+    font-size: 50px;
+    margin-bottom: 75px;
+}
+
+
+.hidden{
+    filter: blur(2px);
+    transform: translateX(-100%) ;
+    opacity: 0;
+    transition: all 1s;
+}
+
+
+.hidden1{
+    filter: blur(2px);
+    transform: translateX(100%) ;
+    opacity: 0;
+    transition: all 1s;
+}
+
+
+
+.show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+
+
+.show1{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+
+
+.back-video{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+
+
+/* ======= CITIZEN SCIENCE SECTION ============ */
+
+.about-us{
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 100px;
+}
+
+.why-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.why-header{
+    height: auto;
+    font-size: 3.5rem;
+    margin-top: 10vh;
+}
+
+
+.why-text{
+    margin-top: 30px;
+    width: 94%;
+}
+
+.why-text p{
+    font-size: 2rem;
+    line-height: 35px;
+    text-align: center;
+}
+
+
+.why-help{
+    margin-top: 25px;
+}
+
+.why-help h2{
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.custom-shape-divider-bottom-1683314506 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1683314506 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 161px;
+}
+
+.custom-shape-divider-bottom-1683314506 .shape-fill {
+    fill: #FFFFFF;
+}
+
+
+/*============ CITIZEN SCIENCE SECTION ===============*/
+
+.citizen-science{
+    height: auto;
+}
+
+.custom-shape-divider-top-1683316064 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1683316064 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 161px;
+}
+
+.custom-shape-divider-top-1683316064 .shape-fill {
+    fill: #FFFFFF;
+}
+
+
+
+/*============ CITIZEN SCIENCE TIMELINE ===============*/
+
+
+.timeline{
+    position: relative;
+    max-width: 1200px;
+    margin: 100px auto;
+}
+
+.timeline-container{
+    padding: 10px 50px;
+    position: relative;
+    width: 50%;
+    animation: movedown 1s linear forwards;
+    opacity: 0;
+    z-index: 10;
+}
+
+
+@keyframes movedown {
+    0%{
+        opacity: 1;
+        transform: translateY(-30px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.timeline-text-box{
+    padding: 20px 30px;
+    background: #fff;
+    position: relative;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.left-container{
+    left: 0;
+}
+
+.right-container{
+    left: 50%;
+}
+
+
+.timeline::after{
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background: #fff;
+    top: 0;
+    left: 50%;
+    margin-left: -3px;
+    z-index: 0;
+    animation: moveline 10s forwards;
+}
+
+@keyframes moveline {
+    0%{
+        height: 0;
+    }
+
+    100%{
+        height: 100%;
+    }
+
+}
+
+.timeline-text-box h2{
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+
+.left-container-arrow{
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 28px;
+    z-index: 1;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid white;
+    right: -14px;
+}
+
+
+.right-container-arrow{
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 28px;
+    z-index: 1;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid white;
+    left: -14px;
+}
+
+
