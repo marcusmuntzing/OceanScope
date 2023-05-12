@@ -3,8 +3,6 @@ import express from "express";
 
 const app = express();
 
-const uri = "mongodb+srv://oceanscope:oceanscope@cluster0.fbyof7e.mongodb.net/?retryWrites=true&w=majority";
-
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
