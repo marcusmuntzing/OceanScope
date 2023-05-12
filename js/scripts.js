@@ -1,5 +1,3 @@
-const APILINK = "http://localhost:8000"
-
 
 /*======== Scroll Animations =============*/
 
@@ -80,31 +78,25 @@ navLinks.forEach(link => {
 
 /*======== Google Heatmaps =============*/
 
-
-function requestData() {
-  fetch('/data')
-    .then(function(response) {
-      return response.json();
-    })
-    .then(initMap);
-}
-
-
-function initMap(json) {
+function initMap() {
   var gothenburg = new google.maps.LatLng(57.708870, 11.974560);
-
 
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 13,
     center: gothenburg,
   });
 
-  var data = [];
-  var i;
-
-    for (let i = 0; i < json.length; i++) {
-      const latLng = new google.maps.LatLng(json[i].location[0], json[i].location[1]);
-      const temperature = json[i].temp;
+  fetch('http://localhost:3000/data').then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  }).then(results => {
+    console.log(results)
+    var data = [];
+    for (let i = 0; i < results.length; i++) {
+      const latLng = new google.maps.LatLng(results[i].location[0], results[i].location[1]);
+      const temperature = results[i].temp;
       const markerData = {
         "location": latLng,
         "weight": temperature
@@ -112,12 +104,18 @@ function initMap(json) {
       data.push(markerData);
     }
 
-  var heatmap = new google.maps.visualization.HeatmapLayer({
-    data: data,
-    map: map,
+    var heatmap = new google.maps.visualization.HeatmapLayer({
+      data: data,
+      map: map,
+    });
+  }).catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
   });
-
 }
+
+initMap();
+
+
 
 
 
