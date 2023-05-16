@@ -1,9 +1,11 @@
 import { MongoClient, ServerApiVersion } from 'mongodb';
 import express from "express";
-
+import "dotenv/config"
 const app = express();
 
-const uri = "mongodb+srv://oceanscope:oceanscope@cluster0.fbyof7e.mongodb.net/?retryWrites=true&w=majority";
+
+
+const uri = process.env.MONGO_URI
 
 const client = new MongoClient(uri, {
   serverApi: {
