@@ -1,11 +1,12 @@
 import { MongoClient, ServerApiVersion } from 'mongodb';
-import express from "express";
-import "dotenv/config"
+import express from 'express';
+import dotenv from 'dotenv';
+
+dotenv.config();
 const app = express();
+const port = 3000;
 
-
-
-const uri = process.env.MONGO_URI
+const uri = process.env.MONGO_URI;
 
 const client = new MongoClient(uri, {
   serverApi: {
@@ -14,6 +15,7 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   },
 });
+
 
 app.get('/data', async (req, res) => {
   try {
@@ -31,12 +33,12 @@ app.get('/data', async (req, res) => {
     res.send(JSON.stringify(results));
   } catch (error) {
     console.log(error);
-    res.status(500).send("Internal server error");
+    res.status(500).send('Internal server error');
   } finally {
     await client.close();
   }
 });
 
-app.listen(3000, () => {
-  console.log('Server listening on port 3000');
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });
