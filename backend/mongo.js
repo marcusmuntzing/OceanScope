@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 const app = express();
-const port = 3000;
+const port = 8080;
 
 const uri = process.env.MONGO_URI;
 
