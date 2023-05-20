@@ -223,6 +223,7 @@ section{
 
 .flip-card {
   background-color: transparent;
+  margin-left: 20px;
   width: 300px;
   height: 350px;
   perspective: 1000px;
@@ -541,10 +542,17 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 body {
-  color: #333;
   -webkit-font-smoothing: antialiased;
-  font-family: "Droid Serif", serif;
 }
+
+
+
+
+.shopping-cart{
+    color: #FFFFFF;
+}
+
+
 
 .shopping-cart img{
   max-width: 100%;
@@ -564,7 +572,7 @@ body {
 }
 
 .wrap {
-  width: 90%;
+  width: 100%;
   max-width: 960px;
   margin: 0 auto;
   padding: 5% 0;
@@ -574,7 +582,7 @@ body {
 .projTitle {
   font-weight: bold;
   text-align: center;
-  font-size: 2em;
+  font-size: 4em;
   padding: 1em 0;
   border-bottom: 1px solid #dadada;
   letter-spacing: 3px;
@@ -584,7 +592,7 @@ body {
   font-weight: normal;
   font-style: italic;
   text-transform: lowercase;
-  color: #777;
+  color: #FFFFFF;
 }
 
 .heading {
@@ -600,7 +608,7 @@ body {
   letter-spacing: -.015em;
   font-size: .75em;
   padding: 1em;
-  color: #fff;
+  color: #FFFFFF;
   background: #82ca9c;
   font-weight: bold;
   border-radius: 50px;
@@ -654,9 +662,7 @@ body {
   padding: 1.5em;
   border-bottom: 1px solid #fafafa;
 }
-.cart .items.even {
-  background: #fafafa;
-}
+
 .cart .items .infoWrap {
   display: table;
   width: 100%;
@@ -667,7 +673,7 @@ body {
 }
 .cart .items .cartSection .itemNumber {
   font-size: .75em;
-  color: #777;
+  color: #FFFFFF;
   margin-bottom: .5em;
 }
 .cart .items .cartSection h3 {
@@ -680,7 +686,7 @@ body {
 .cart .items .cartSection p {
   display: inline-block;
   font-size: .85em;
-  color: #777777;
+  color: #FFFFFF;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -692,10 +698,13 @@ body {
 }
 .cart .items .cartSection.qtyWrap, .cart .items .cartSection.prodTotal {
   text-align: right;
+        color: #FFFFFF;
+
 }
 .cart .items .cartSection.qtyWrap p, .cart .items .cartSection.prodTotal p {
   font-weight: bold;
   font-size: 1.25em;
+    color: #FFFFFF;
 }
 
 
@@ -722,7 +731,7 @@ body {
   content: "\21b3";
   font-size: 1.5em;
   margin-right: 1em;
-  color: #6f6f6f;
+  color: #FFFFFF;
   font-family: helvetica, arial, sans-serif;
 }
 
@@ -787,7 +796,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: .85em;
   text-transform: uppercase;
-  color: #777;
+  color: #FFFFFF;
 }
 .subtotal .totalRow .value {
   letter-spacing: -.025em;
@@ -844,3 +853,25 @@ body {
     text-align: center;
   }
 }
+
+.shopping-cart{
+    background: var(--main-color);
+}
+
+.DIY{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.DIY h1{
+    font-weight: bold;
+    font-size: 5rem;
+}
+
+.shopping-cart{
+}
+
+
+
+
