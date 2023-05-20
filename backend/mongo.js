@@ -15,7 +15,7 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   },
 });
-
+console.log(client)
 
 app.get('/data', async (req, res) => {
   try {
@@ -32,10 +32,11 @@ app.get('/data', async (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:63342'); // set the CORS header
     res.send(JSON.stringify(results));
   } catch (error) {
-    console.log(error);
+    console.log(error, "Error");
     res.status(500).send('Internal server error');
   } finally {
     await client.close();
+    console.log("client closed")
   }
 });
 
