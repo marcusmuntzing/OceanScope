@@ -31,7 +31,7 @@ app.get('/data', async (req, res) => {
 
     const results = await cursor.toArray();
     res.setHeader('Content-Type', 'application/json');
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:63342'); // set the CORS header
+    res.setHeader('Access-Control-Allow-Origin', 'https://oyster-app-x8o8q.ondigitalocean.app'); // set the CORS header
     res.send(JSON.stringify(results));
   } catch (error) {
     console.log(error, "Error");
