@@ -1,10 +1,11 @@
 
-// Function to retrieve address from coordinates in the frontend
+ import 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js';
+
 async function getAddressFromCoordinates(lat, lon) {
-  const response = await fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${long}&key=AIzaSyBCftQkQvQgkkfh1GTULqlOVOTHdXLLrNQ');
+  const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=AIzaSyBCftQkQvQgkkfh1GTULqlOVOTHdXLLrNQ`);
   const data = await response.json();
   if (data.results.length > 0) {
-    console.log(data.results[0].formatted_address)
+    console.log(data.results[0].formatted_address);
     return data.results[0].formatted_address;
   } else {
     return null;
@@ -16,8 +17,6 @@ function displayGraph(data) {
   const timestamps = data.map((item) => item.timestamp);
   const temperatures = data.map((item) => item.temp);
 
-  // Use a graph library like Chart.js to create the graph
-  // Here's a basic example using Chart.js
 
   const ctx = document.getElementById('graphContainer').getContext('2d');
   new Chart(ctx, {
@@ -56,16 +55,22 @@ function displayGraph(data) {
 
 // Function to search for the address
 function searchAddress() {
-  const addressInput = document.getElementById('addressInput');
-  const searchAddress = addressInput.value.trim();
+  const searchInput = document.getElementById('search-input').value;
+  const address = searchInput.trim().toLowerCase();
+
+  // Check if the address is a string
+  if (typeof address !== 'string') {
+    console.error('Invalid address format');
+    return;
+  }
 
   // Fetch data from backend API
   fetch('https://oyster-app-x8o8q.ondigitalocean.app/data')
     .then((response) => response.json())
     .then((data) => {
-      const matchingData = data.filter((item) => {
-        const address = getAddressFromCoordinates(item.location[0], item.location[1]);
-        return address && address.toLowerCase().includes(searchAddress.toLowerCase());
+      const matchingData = data.filter(async (item) => {
+        const itemAddress = await getAddressFromCoordinates(item.location[0], item.location[1]);
+        return itemAddress && itemAddress.toLowerCase().includes(address);
       });
 
       // Display the graph if matching data is found
@@ -85,3 +90,8 @@ document.getElementById('addressForm').addEventListener('submit', (e) => {
   e.preventDefault();
   searchAddress();
 });
+
+
+
+
+

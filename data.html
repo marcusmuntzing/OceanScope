@@ -33,6 +33,25 @@
     <div id="map"></div>
   </section>
 
+  <section class="search-section">
+
+    <div class="form-div">
+      <h1 style="color: white; font-size: 4rem; margin-top: 100px; ">Temperature Around Gothenburg Archipelago</h1>
+      <p style="font-size: 2rem; color: white; text-align: center; margin-top: 20px; margin-bottom: 20px; "> The search function on this website allows you to search for a location and see the water temperature data for that area. Simply enter an address or location in the search box, and the system will find the matching data. If there is a match, a graph will be displayed showing the water temperature over time.<br> It helps you quickly find the best sites to visit in the Gothenburg archipelago. </p>
+    <form id="addressForm">
+      <div class="search-container">
+      <input type="text" id="search-input" placeholder="Enter address" />
+      </div>
+      <div class="button-container">
+      <button type="submit" class="btn">Search</button>
+      </div>
+    </form>
+    </div>
+
+  <canvas id="graphContainer"></canvas>
+  </section>
+
+
      <footer>
        <div class="footer-content">
          <div class="footer-image">
@@ -56,6 +75,8 @@
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCftQkQvQgkkfh1GTULqlOVOTHdXLLrNQ&libraries=visualization&callback=initMap"></script>
 <script type="module" src="js/scripts.js" defer></script>
+  <script src="/js/search.js" type="module" ></script>
+
 
 
 

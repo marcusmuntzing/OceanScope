@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 const port = 8080;
 app.use(express.static('../'))
-app.use(cors()); // Add this line
+app.use(cors())
 
 
 const uri = process.env.MONGO_URI;
@@ -33,7 +33,7 @@ app.get('/data', async (req, res) => {
 
     const results = await cursor.toArray();
     res.setHeader('Content-Type', 'application/json');
-    res.setHeader('Access-Control-Allow-Origin', 'https://oyster-app-x8o8q.ondigitalocean.app'); // set the CORS header
+    res.setHeader('Access-Control-Allow-Origin', 'https://oyster-app-x8o8q.ondigitalocean.app'); // ENABLE NEXT PUSH !!!IMPORTANT!!!!
     res.send(JSON.stringify(results));
   } catch (error) {
     console.log(error, "Error");
