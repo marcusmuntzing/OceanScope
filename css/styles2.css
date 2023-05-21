@@ -391,11 +391,10 @@ footer{
     align-items: center;
     width: 100%;
     background: var(--main-color);
-    height: auto;
+    height: 36vh;
     font-family: Poppins, sans-serif;
     padding-top: 40px;
     color: #fff;
-    border-top-left-radius: 50px;
 }
 
 
@@ -723,6 +722,16 @@ footer{
 }
 
 
+.button-container{
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container .btn{
+    font-size: 2.5rem;
+}
 
 
 /*================ MOBILE RESPONSIVE =========== */

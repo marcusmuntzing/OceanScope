@@ -1,11 +1,13 @@
 import { MongoClient, ServerApiVersion } from 'mongodb';
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from "cors";
 
 dotenv.config();
 const app = express();
 const port = 8080;
 app.use(express.static('../'))
+app.use(cors()); // Add this line
 
 
 const uri = process.env.MONGO_URI;

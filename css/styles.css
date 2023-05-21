@@ -387,7 +387,7 @@ footer{
     align-items: center;
     width: 100%;
     background: var(--main-color);
-    height: auto;
+    height: 36vh;
     font-family: Poppins, sans-serif;
     padding-top: 40px;
     color: #fff;
