@@ -24,10 +24,22 @@
       <a href="index.html">Home</a>
       <a href="sensor.html" class="active">Sensor</a>
       <a href="data.html">Data</a>
+      <a href="industry.html">Industry</a>
       <a href="team.html">Team</a>
     </nav>
-  </header>
+<button class="hamburger">
+    <div class="bar"></div>
+  </button>
 
+</header>
+
+  <nav class="mobile-nav">
+    <a href="#" class="active">Home</a>
+    <a href="sensor.html" class="link-sensor">Sensor</a>
+    <a href="data.html" class="link-data">Data</a>
+    <a href="industry.html">Industry</a>
+    <a href="team.html" class="link-team">Team</a>
+  </nav>
   <section class="sensor-content" id="sensor">
     <div class="title">
       <h1>The <span style="color:var(--main-color)">Sensor</span></h1>
@@ -241,9 +253,10 @@
            <img src="images/oceanscope_logo.png">
          </div>
          <div class="footerNav">
-           <li><a href="#">Home</a></li>
+           <li><a href="sensor.html">Home</a></li>
            <li><a href="sensor.html">Sensor</a></li>
            <li><a href="data.html">Data</a></li>
+           <li><a href="industry.html">Industry</a></li>
            <li><a href="team.html">Team</a></li>
          </div>
        </div>
@@ -253,6 +266,20 @@
        </div>
      </footer>
 
+
+ <script>
+      document.addEventListener('DOMContentLoaded', function() {
+  window.onload = function() {
+    const menu_btn = document.querySelector('.hamburger');
+    const mobile_menu = document.querySelector('.mobile-nav');
+
+    menu_btn.addEventListener('click', function() {
+      menu_btn.classList.toggle('is-active');
+      mobile_menu.classList.toggle('is-active');
+    });
+  };
+});
+    </script>
 
 
 

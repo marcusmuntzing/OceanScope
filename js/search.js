@@ -5,7 +5,6 @@ async function getAddressFromCoordinates(lat, lon) {
   const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=AIzaSyBCftQkQvQgkkfh1GTULqlOVOTHdXLLrNQ`);
   const data = await response.json();
   if (data.results.length > 0) {
-    console.log(data.results[0].formatted_address);
     return data.results[0].formatted_address;
   } else {
     return null;
@@ -54,9 +53,12 @@ function displayGraph(data) {
 }
 
 // Function to search for the address
+// Function to search for the address
 function searchAddress() {
   const searchInput = document.getElementById('search-input').value;
   const address = searchInput.trim().toLowerCase();
+  const graphContainer = document.getElementById('graphContainer');
+  const noDataContainer = document.getElementById('noDataContainer');
 
   // Check if the address is a string
   if (typeof address !== 'string') {
@@ -65,25 +67,35 @@ function searchAddress() {
   }
 
   // Fetch data from backend API
-  fetch('https://oyster-app-x8o8q.ondigitalocean.app/data')
+  fetch('http://localhost:8080/data')
     .then((response) => response.json())
-    .then((data) => {
-      const matchingData = data.filter(async (item) => {
-        const itemAddress = await getAddressFromCoordinates(item.location[0], item.location[1]);
-        return itemAddress && itemAddress.toLowerCase().includes(address);
-      });
+    .then(async (data) => {
+      const matchingData = [];
+      await Promise.all(
+        data.map(async (item) => {
+          const itemAddress = await getAddressFromCoordinates(item.location[0], item.location[1]);
+          if (itemAddress && itemAddress.trim().toLowerCase().includes(address)) {
+            matchingData.push(item);
+          }
+        })
+      );
 
       // Display the graph if matching data is found
       if (matchingData.length > 0) {
         displayGraph(matchingData);
+        graphContainer.style.display = 'block'; // Show the canvas
+        noDataContainer.style.display = 'none'; // Hide the alternative content
       } else {
         console.log('No matching data found');
+        graphContainer.style.display = 'none'; // Hide the canvas
+        noDataContainer.style.display = 'block'; // Show the alternative content
       }
     })
     .catch((error) => {
       console.error('Error:', error);
     });
 }
+
 
 // Event listener for search form submission
 document.getElementById('addressForm').addEventListener('submit', (e) => {

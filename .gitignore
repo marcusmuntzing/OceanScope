@@ -2,3 +2,5 @@
 node_modules/
 upload_data.py
 bad_index.html
+search.html
+.idea

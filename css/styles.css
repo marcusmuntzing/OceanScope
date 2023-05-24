@@ -28,7 +28,9 @@ html{
 body{
     background: var(--bg-color);
     color: var(--text-color);
+    width: 100%;
 }
+
 
 
 .header{
@@ -41,7 +43,6 @@ body{
     display: flex;
     align-items: center;
     z-index: 100;
-    transition: .5s;
 }
 
 .header.sticky{
@@ -110,10 +111,6 @@ section{
 }
 
 
-.home-content{
-    max-width: 44rem;
-}
-
 .home-content h3{
     font-size: 3.2rem;
     font-weight: 700;
@@ -131,9 +128,6 @@ section{
 }
 
 .home-content .social-media a{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
     width: 4rem;
     height: 4rem;
     background: transparent;
@@ -143,7 +137,6 @@ section{
     font-size: 2rem;
     color: var(--main-color);
     margin: 2.5rem 1.5rem 3rem 0;
-    transition: .5s ease;
 }
 
 .home-content .social-media a:hover{
@@ -360,7 +353,7 @@ section{
 }
 
 #map{
-    height: 400px;
+    height: 75vh;
     width: 100%;
 }
 
@@ -387,11 +380,10 @@ footer{
     align-items: center;
     width: 100%;
     background: var(--main-color);
-    height: 36vh;
+    height: auto;
     font-family: Poppins, sans-serif;
     padding-top: 40px;
     color: #fff;
-    border-top-left-radius: 50px;
 }
 
 
@@ -414,13 +406,14 @@ footer{
 }
 
 
+.footer-bottom {
 
-.footer-bottom{
-    width: 100vw;
-    padding: 20px 0;
-    text-align: center;
+  padding: 20px 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Add this line */
 }
-
 
 
 .footer-bottom span{
@@ -428,6 +421,7 @@ footer{
     opacity: .4;
     font-weight: 200;
 }
+
 
 .footerNav{
     margin-top: 5px;
@@ -482,7 +476,7 @@ footer{
     filter: blur(2px);
     transform: translateX(-100%) ;
     opacity: 0;
-    transition: all 1s;
+    transition:  1s;
 }
 
 .show{
@@ -614,22 +608,22 @@ body {
   border-radius: 50px;
   float: right;
   text-align: right;
-  -webkit-transition: all 0.25s linear;
-  -moz-transition: all 0.25s linear;
-  -ms-transition: all 0.25s linear;
-  -o-transition: all 0.25s linear;
-  transition: all 0.25s linear;
+  -webkit-transition:  0.25s linear;
+  -moz-transition:  0.25s linear;
+  -ms-transition:  0.25s linear;
+  -o-transition:  0.25s linear;
+  transition:  0.25s linear;
 }
 .heading a.continue:after {
   content: "\276f";
   padding: .5em;
   position: relative;
   right: 0;
-  -webkit-transition: all 0.15s linear;
-  -moz-transition: all 0.15s linear;
-  -ms-transition: all 0.15s linear;
-  -o-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition:  0.15s linear;
+  -moz-transition:  0.15s linear;
+  -ms-transition:  0.15s linear;
+  -o-transition:  0.15s linear;
+  transition:  0.15s linear;
 }
 .heading a.continue:hover, .heading a.continue:focus, .heading a.continue:active {
   background: #f69679;
@@ -748,22 +742,22 @@ body {
   border-radius: 50px;
   float: right;
   text-align: right;
-  -webkit-transition: all 0.25s linear;
-  -moz-transition: all 0.25s linear;
-  -ms-transition: all 0.25s linear;
-  -o-transition: all 0.25s linear;
-  transition: all 0.25s linear;
+  -webkit-transition:  0.25s linear;
+  -moz-transition:  0.25s linear;
+  -ms-transition:  0.25s linear;
+  -o-transition:  0.25s linear;
+  transition:  0.25s linear;
 }
 .btn:after {
   content: "\276f";
   padding: .5em;
   position: relative;
   right: 0;
-  -webkit-transition: all 0.15s linear;
-  -moz-transition: all 0.15s linear;
-  -ms-transition: all 0.15s linear;
-  -o-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition:  0.15s linear;
+  -moz-transition:  0.15s linear;
+  -ms-transition:  0.15s linear;
+  -o-transition:  0.15s linear;
+  transition:  0.15s linear;
 }
 .btn:hover, .btn:focus, .btn:active {
   background: #f69679;
@@ -903,8 +897,9 @@ body {
     padding: 10px;
     background: #5dbea3 ;
     margin-top: 10px;
-}
+    cursor: pointer;
 
+}
 
 
 
@@ -915,3 +910,483 @@ body {
     text-align: center;
 }
 
+#graphContainer{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: none;
+    background: white;
+}
+
+
+#noDataContainer{
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    margin-top:50px;
+}
+
+#noDataContainer h1{
+    color: white;
+    font-size: 2rem;
+}
+
+#noDataContainer p{
+    margin-top: 10px;
+    color: white;
+    font-size: 1.5rem;
+}
+
+
+
+/* =============== SECTION ABOUT INDUSTRY DEEP DIVE ==================== */
+
+
+.text-container{
+    width: 100%;
+    height: auto;
+    margin-top: 25vh;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.text-container h1{
+    font-size: 4rem;
+    margin-bottom: 25px;
+    color: var(--main-color);
+    text-align: center;
+}
+
+.text-container h2{
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.text-container p{
+    font-size: 16px;
+}
+
+.text-section{
+    margin-bottom: 50px;
+}
+
+
+
+
+.container {
+  margin: 0 auto;
+  padding: 4rem;
+  width: 75vw;
+}
+
+.accordion .accordion-item {
+  border-bottom: 1px solid #e5e5e5;
+}
+.accordion .accordion-item button[aria-expanded=true] {
+  border-bottom: 1px solid #03b5d2;
+}
+.accordion button {
+  position: relative;
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 1em 0;
+  color: var(--main-color);
+  font-size: 1.7rem;
+  font-weight: 400;
+  border: none;
+  background: none;
+  outline: none;
+}
+.accordion button:hover, .accordion button:focus {
+  cursor: pointer;
+  color: #03b5d2;
+}
+.accordion button:hover::after, .accordion button:focus::after {
+  cursor: pointer;
+  color: #03b5d2;
+  border: 1px solid #03b5d2;
+}
+.accordion button .accordion-title {
+  padding: 1em 1.5em 1em 0;
+}
+.accordion button .icon {
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  border: 1px solid;
+  border-radius: 22px;
+}
+.accordion button .icon::before {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 9px;
+  left: 5px;
+  width: 10px;
+  height: 2px;
+  background: currentColor;
+}
+.accordion button .icon::after {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 5px;
+  left: 9px;
+  width: 2px;
+  height: 10px;
+  background: currentColor;
+}
+.accordion button[aria-expanded=true] {
+  color: #03b5d2;
+}
+.accordion button[aria-expanded=true] .icon::after {
+  width: 0;
+}
+.accordion button[aria-expanded=true] + .accordion-content {
+  opacity: 1;
+  max-height: 40em;
+  transition:  200ms linear;
+  will-change: opacity, max-height;
+}
+.accordion .accordion-content {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 200ms linear, max-height 200ms linear;
+  will-change: opacity, max-height;
+}
+.accordion .accordion-content p {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 2em 0;
+}
+
+
+
+.overlapping-feature {
+  width: 100%;
+  max-width: 1800px;
+  display: grid;
+  grid-template-rows: 650px;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+}
+.overlapping-feature__container {
+  width: 100%;
+  max-width: 80%;
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 550px) {
+  .overlapping-feature {
+    grid-template-rows: 1fr !important;
+  }
+}
+.overlapping-feature__image {
+  position: relative;
+  width: 34vw;
+  max-width: 800px;
+  height: 80vh;
+  align-self: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+}
+
+.overlapping-feature__image img{
+    height: 80vh;
+    width: 34vw;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+@media (max-width: 1140px) {
+  .overlapping-feature__image {
+    display: none;
+  }
+
+
+}
+.overlapping-feature__image::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-image: url("images/tech.jpg");
+  background-position: 80% 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 3px 25px -10px #000;
+}
+@media (min-width: 1756px) {
+  .overlapping-feature__image::after {
+    background-position: 100% 70% !important;
+  }
+}
+.overlapping-feature__content {
+  width: 56vw;
+  max-width: 1230px;
+  background-color: #fff;
+  box-shadow: -4px 5px 40px -20px rgba(0, 0, 0, 0.3);
+}
+
+
+@media (max-width: 1140px) {
+    .overlapping-feature__content {
+        width: 100%;
+    }
+
+}
+
+.overlapping-feature__content > div {
+  width: 30vw;
+  margin-left: 40%;
+  text-align: left;
+  align-items: flex-start;
+}
+
+@media (max-width: 550px) {
+  .overlapping-feature__content > div {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 30px;
+  }
+}
+
+
+.overlapping-feature--left {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+}
+
+
+.overlapping-feature--right {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: end;
+}
+.overlapping-feature--center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.overlapping-feature h2 {
+  font: 600 37px "Poppins", Helvetica, Arial, Lucida, sans-serif;
+  line-height: 1.1em;
+  text-transform: uppercase;
+}
+.overlapping-feature p {
+  font: 500 16px "Poppins", Helvetica, Arial, Lucida, sans-serif !important;
+  padding-top: 20px;
+}
+.overlapping-feature h2,
+.overlapping-feature p {
+  margin: 0;
+  color: #333;
+}
+
+
+
+.project {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+    margin-bottom: 100px;
+}
+
+.project > div:first-of-type {
+  align-self: center;
+}
+
+
+.overlapping-feature--center--left{
+    margin-right: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+
+
+@media only screen and (max-width: 1000px) {
+
+    html, body{
+        width: 100%;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+
+      .footer-content{
+        width: 100vw;
+    }
+
+    .footerNav{
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container{
+        width: 90vw;
+        padding: 3rem;
+    }
+    .text-container{
+        width: 90vw;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0;
+    }
+
+    .project{
+        justify-content: center;
+        display: inline-block;
+    }
+
+    .overlapping-feature--center{
+        width: 90vw;
+        padding: 0;
+    }
+
+    .overlapping-feature--center h2{
+        text-align: center;
+    }
+
+    .accordion-title{
+        font-size: 1.5rem;
+    }
+
+
+    .card-container{
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+        align-items: center;
+    }
+
+
+}
+
+
+
+/* CSS for responsive burger menu */
+
+.hamburger{
+    position: relative;
+    display: block;
+    width: 35px;
+    cursor: pointer;
+    z-index: 100;
+
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+
+.hamburger .bar, .hamburger:after, .hamburger:before{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: var(--main-color);
+    margin: 6px 0;
+    transition: 0.4s;
+
+}
+
+
+.hamburger.is-active:before{
+    transform: rotate(-45deg) translate(-8px, 6px);
+}
+
+.hamburger.is-active:after{
+    transform: rotate(45deg) translate(-9px, -8px);
+}
+
+
+
+.hamburger.is-active .bar{
+    opacity: 0;
+}
+
+
+.mobile-nav{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100vh;
+    z-index: 98;
+    background-color: var(--main-color);
+    padding-top: 120px;
+    transition: 0.6s ease-in-out;
+}
+
+
+.mobile-nav.is-active{
+    left: 0;
+}
+
+.mobile-nav a{
+        justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+        display: block;
+        margin: 0 auto 25px;
+
+        text-align: center;
+        width: 100%;
+        max-width: 300px;
+        height: 50px;
+        padding: 12px 16px;
+        background-color: lightseagreen;
+    border-radius: 5px;
+        color: white;
+        text-decoration: none;
+    }
+
+
+.mobile-nav a:hover{
+    background-color: lightsalmon;
+}
+
+
+@media (min-width: 767px){
+    .mobile-nav{
+        display: none;
+    }
+
+    .hamburger{
+        display: none;
+    }
+}
+
+
+@media (max-width: 767px){
+    .navbar{
+        display: none;
+    }
+}
