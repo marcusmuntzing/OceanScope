@@ -67,7 +67,7 @@ function searchAddress() {
   }
 
   // Fetch data from backend API
-  fetch('http://localhost:8080/data')
+  fetch('https://oyster-app-x8o8q.ondigitalocean.app/data')
     .then((response) => response.json())
     .then(async (data) => {
       const matchingData = [];
