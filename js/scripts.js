@@ -86,7 +86,7 @@ function initMap() {
     center: gothenburg,
   });
 
-  fetch('https://oyster-app-x8o8q.ondigitalocean.app/data').then(response => {
+  fetch('https://www.oceanscope.se/data').then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }

@@ -1390,3 +1390,14 @@ body {
         display: none;
     }
 }
+
+#noDataContainer .btn{
+    text-align: center;
+    font-size: 2rem;
+}
+
+#noDataContainer{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

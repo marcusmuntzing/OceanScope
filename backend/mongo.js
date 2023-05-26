@@ -33,7 +33,7 @@ app.get('/data', async (req, res) => {
 
     const results = await cursor.toArray();
     res.setHeader('Content-Type', 'application/json');
-    res.setHeader('Access-Control-Allow-Origin', 'https://oyster-app-x8o8q.ondigitalocean.app'); // ENABLE NEXT PUSH !!!IMPORTANT!!!!
+    res.setHeader('Access-Control-Allow-Origin', 'https://www.oceanscope.se'); // ENABLE NEXT PUSH !!!IMPORTANT!!!!
     res.send(JSON.stringify(results));
   } catch (error) {
     console.log(error, "Error");
