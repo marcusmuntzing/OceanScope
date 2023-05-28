@@ -99,20 +99,59 @@ function initMap() {
       const temperature = results[i].temp;
       const markerData = {
         "location": latLng,
+        "weight": temperature
       };
       data.push(markerData);
     }
 
+    var gradientColors = [
+      'rgba(128, 0, 128, 0)', // starting color (transparent purple)
+      'rgba(128, 0, 128, 1)'  // ending color (solid purple)
+    ];
+
     var heatmap = new google.maps.visualization.HeatmapLayer({
       data: data,
       map: map,
-      opacity: 0.8, // Adjust the opacity value (between 0 and 1) to your preference
-
+      gradient: gradientColors, // set the custom gradient
     });
+
+    // Add event listener for click event on the heatmap
+    google.maps.event.addListener(heatmap, 'click', function(event) {
+      var location = event.latLng;
+      var temperature = event.weight;
+
+      // Display the data to the user
+      displayData(location, temperature);
+    });
+
   }).catch(error => {
     console.error('There was a problem with the fetch operation:', error);
   });
 }
+
+function displayData(location, temperature) {
+  // Get the target div where the data will be displayed
+  var targetDiv = document.getElementById('data-container');
+
+  // Create HTML content for the location and temperature
+  var locationText = document.createElement('p');
+  locationText.textContent = 'Location: ' + location;
+
+  var temperatureText = document.createElement('p');
+  temperatureText.textContent = 'Temperature: ' + temperature;
+
+  // Clear previous content in the target div
+  targetDiv.innerHTML = '';
+
+  // Append the HTML content to the target div
+  targetDiv.appendChild(locationText);
+  targetDiv.appendChild(temperatureText);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  initMap();
+});
+
 
 
 
