@@ -535,9 +535,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   box-sizing: border-box;
 }
 
-body {
-  -webkit-font-smoothing: antialiased;
-}
+
 
 
 
@@ -1053,7 +1051,7 @@ body {
 }
 .accordion button[aria-expanded=true] + .accordion-content {
   opacity: 1;
-  max-height: 40em;
+  max-height: 60em;
   transition:  200ms linear;
   will-change: opacity, max-height;
 }
@@ -1227,6 +1225,14 @@ body {
 
 
 @media only screen and (max-width: 1000px) {
+    .step img{
+    display: none;
+}
+    #multistep{
+        height: 800px;
+    }
+
+
 
     html, body{
         width: 100%;
@@ -1389,4 +1395,240 @@ body {
     .navbar{
         display: none;
     }
+
+}
+
+#noDataContainer .btn{
+    text-align: center;
+    font-size: 2rem;
+}
+
+#noDataContainer{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.gallery {
+	display: flex;
+    width: 60vw;
+	flex-wrap: wrap;
+	/* Compensate for excess margin on outer gallery flex items */
+	margin: -1rem -1rem;
+}
+
+.gallery-item {
+	/* Minimum width of 24rem and grow to fit available space */
+	flex: 1 0 24rem;
+	/* Margin value should be half of grid-gap value as margins on flex items don't collapse */
+	margin: 1rem;
+	box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+	overflow: hidden;
+}
+
+.gallery-image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 400ms ease-out;
+}
+
+.gallery-image:hover {
+	transform: scale(1.15);
+}
+
+/*
+
+The following rule will only run if your browser supports CSS grid.
+
+Remove or comment-out the code block below to see how the browser will fall-back to flexbox styling.
+
+*/
+
+@supports (display: grid) {
+	.gallery {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+		grid-gap: 2rem;
+	}
+
+	.gallery,
+	.gallery-item {
+		margin: 0;
+	}
+}
+
+
+.wrapper {
+    border-radius: 12px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    height: auto;
+}
+
+#multistep {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.step {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%);
+}
+
+.step.active {
+  transform: translateX(0);
+}
+
+.step.active.prev {
+  transform: translateX(-100%);
+}
+
+.step.active.next {
+  transform: translateX(100%);
+}
+
+.step h2 {
+  flex-basis: 100%;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  margin-left: 10px;
+  font-size: 3rem;
+  text-align: center;
+  color: var(--main-color);
+}
+
+.step p {
+  flex-basis: 70%;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+    font-size: 1.5rem;
+}
+
+.step img{
+    border-radius: 12px;
+    align-self: center;
+}
+
+.cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+#prevBtn {
+  align-self: flex-end;
+}
+
+#nextBtn {
+  bottom: 0;
+  align-self: flex-end;
+}
+
+#progressbar {
+  width: 100%;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+#progress {
+  height: 100%;
+  background-color: #4CAF50;
+}
+
+
+.sensor-instructions{
+    background-color: var(--main-color);
+}
+
+
+#prevBtn,
+#nextBtn {
+  padding: 10px 20px;
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+      border: 2px solid var(--main-color);
+
+}
+
+#prevBtn:hover,
+#nextBtn:hover {
+  background-color: transparent;
+  color: var(--main-color);
+  border: 2px solid var(--main-color);
+}
+
+#prevBtn:active,
+#nextBtn:active {
+  transform: translateY(2px);
+}
+
+@media only screen and (min-width: 1000px) {
+    #multistep{
+        height: 500px;
+    }
+}
+.download-button {
+    width: 100%;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--main-color);
+  color: white;
+  text-align: center;
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+    margin-top: 30px;
+        margin-bottom: 30px;
+
+}
+
+.download-button:hover {
+  background-color: transparent;
+  color: var(--main-color);
+  border-radius: var(--main-color);
+}
+
+.download-button:active {
+  transform: scale(0.95);
+}
+
+.download-button::after {
+  content: '\2193'; /* Down arrow icon */
+  display: inline-block;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.download-button:hover::after {
+  transform: rotate(180deg);
 }

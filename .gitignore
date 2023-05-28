@@ -4,3 +4,5 @@ upload_data.py
 bad_index.html
 search.html
 .idea
+data.json
+scrape_data.py

@@ -20,7 +20,7 @@
 
 <!-- Header Design -->
 <header class="header">
-  <a href="bad_index.html" class="logo">OceanScope</a>
+  <a href="#" class="logo">OceanScope</a>
 
   <nav class="navbar">
     <a href="#" class="active">Home</a>
@@ -80,6 +80,13 @@
       </h2>
     </div>
 
+      <div class="video-cont" style="margin-top: 50px">
+
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/p8b8OuhX0uM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+  </div>
+
 <div class="custom-shape-divider-bottom-1683314506">
     <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <rect x="1200" height="3.6"></rect>
@@ -90,6 +97,8 @@
     </div>
 
   </section>
+
+
 
 
 
@@ -115,7 +124,7 @@
 
     <div class="timeline-container right-container">
       <div class="timeline-text-box hidden1">
-        <h2>How can i become a citizen scientist?</h2>
+        <h2>How can I become a citizen scientist?</h2>
         <p>To become a citizen scientist, you can start by finding a project that interests you and fits your skills and availability. There are many citizen science platforms and websites where you can browse projects and register as a volunteer. However, we think that OceanScope and our objective to fill the ocean data gap is a great starting point. Some projects may require specific equipment or training, while others may only require a smartphone and internet connection. In our case simple sensor equipment would be sufficient.</p>
         <span class="right-container-arrow"></span>
 
@@ -124,7 +133,7 @@
 
     <div class="timeline-container left-container">
       <div class="timeline-text-box hidden">
-        <h2>Where should i start?</h2>
+        <h2>Where should I start?</h2>
         <p>if you are interested in contributing to citizen science efforts related to ocean data collection, you may want to consider using the OceanScope sensor, which is designed to measure various temperature at different locations in the ocean.</p>
         <span class="left-container-arrow"></span>
       </div>
@@ -195,6 +204,29 @@
   };
 });
     </script>
+
+<script>
+  function playVideo() {
+    var video = document.getElementById("my-video");
+    video.play();
+    document.getElementById("play-button").style.display = "none";
+  }
+
+   function togglePlayPause() {
+    var video = document.getElementById("my-video");
+    var playButton = document.getElementById("play-button");
+
+    if (video.paused) {
+      video.play();
+      playButton.innerHTML = "Pause";
+    } else {
+      video.pause();
+      playButton.innerHTML = "Play";
+    }
+  }
+
+</script>
+
 
     <script src="js/scripts.js"></script>
 

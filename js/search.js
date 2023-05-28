@@ -67,7 +67,7 @@ function searchAddress() {
   }
 
   // Fetch data from backend API
-  fetch('https://oyster-app-x8o8q.ondigitalocean.app/data')
+  fetch('https://www.oceanscope.se/data')
     .then((response) => response.json())
     .then(async (data) => {
       const matchingData = [];
@@ -88,7 +88,7 @@ function searchAddress() {
       } else {
         console.log('No matching data found');
         graphContainer.style.display = 'none'; // Hide the canvas
-        noDataContainer.style.display = 'block'; // Show the alternative content
+        noDataContainer.style.display = 'flex'; // Show the alternative content
       }
     })
     .catch((error) => {

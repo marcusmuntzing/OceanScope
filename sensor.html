@@ -34,7 +34,7 @@
 </header>
 
   <nav class="mobile-nav">
-    <a href="#" class="active">Home</a>
+    <a href="index.html" class="active">Home</a>
     <a href="sensor.html" class="link-sensor">Sensor</a>
     <a href="data.html" class="link-data">Data</a>
     <a href="industry.html">Industry</a>
@@ -238,13 +238,103 @@
 </div>
   </section>
 
-
   <section class="DIY">
+    <div class="gallery">
 
+		<div class="gallery-item">
+			<img class="gallery-image" src="images/sens_images/first_start.png">
+		</div>
 
+		<div class="gallery-item">
+			<img class="gallery-image" src="images/sens_images/software_configuration.png">
+		</div>
 
+		<div class="gallery-item">
+			<img class="gallery-image" src="images/sens_images/sens.png">
+		</div>
+
+		<div class="gallery-item">
+			<img class="gallery-image" src="images/sens_images/IMG_8306.JPG">
+		</div>
+
+		<div class="gallery-item">
+			<img class="gallery-image" src="images/sens_images/testing1.png">
+		</div>
+
+		<div class="gallery-item">
+			<img class="gallery-image" src="images/sens_images/IMG_8293.JPG">
+		</div>
+
+	</div>
 
   </section>
+
+  <section class="sensor-instructions">
+    <div class="wrapper">
+  <div id="multistep">
+  <div id="progressbar">
+    <div id="progress"></div>
+  </div>
+
+  <div class="step">
+    <h2>Step 1: Setting Up The Raspberry Pi</h2>
+    <p>Obtain a Raspberry Pi board (such as Raspberry Pi 4) and required accessories, including a power supply, HDMI cable, USB keyboard, USB mouse, and an SD card (minimum 8GB capacity). <br> <br> Download the Raspberry Pi OS (formerly known as Raspbian) from the official Raspberry Pi website. Choose the appropriate version, typically "Raspberry Pi OS with desktop" or "Raspberry Pi OS Lite" for a headless setup. <br> <br>Insert the SD card into your computer's SD card reader. Use the Raspberry Pi Imager tool, available for Windows, macOS, and Linux, to write the downloaded OS image to the SD card. Select the downloaded OS image file, choose the SD card as the target, and click "Write." Once the writing process is complete, safely eject the SD card from your computer.</p>
+  </div>
+  <div class="step">
+    <h2>Step 2: Booting the Raspberry Pi</h2>
+    <p>Insert the prepared SD card into the Raspberry Pi's SD card slot.
+Connect the HDMI cable from the Raspberry Pi to a monitor or TV. Also, connect the USB keyboard and mouse.
+Plug in the power supply to turn on the Raspberry Pi. <br><br>
+The Raspberry Pi will boot up and show the desktop environment or command line interface, depending on the OS version you installed.</p>
+    <div class="cont"><img src="images/sens_images/first_start.png"></div>
+  </div>
+  <div class="step">
+    <h2>Step 3: Connect The Temperature Sensor</h2>
+    <p>Identify the GPIO pins on the Raspberry Pi board. Refer to the official Raspberry Pi documentation or pinout diagrams for your specific model.
+Connect the temperature sensor to the Raspberry Pi's GPIO pins according to its specifications. This typically involves connecting power (3.3V or 5V), ground (GND), and the data pin to a GPIO pin.
+<br><br>Install the required libraries or drivers for the temperature sensor. Consult the documentation or resources provided by the sensor manufacturer for instructions on installation and usage.
+Write a script or program in a programming language of your choice (such as Python) to read data from the temperature sensor using the GPIO pins. This script can utilize the installed libraries or drivers to interface with the sensor.</p>
+  </div>
+
+    <div class="step">
+    <h2>Step 4: Connect The GPS Sensor</h2>
+    <p>IIdentify the available interface options for connecting the GPS module to the Raspberry Pi. Depending on the GPS module, it may support UART, USB, or other communication methods.
+Connect the GPS module to the Raspberry Pi using the appropriate interface. <br><br> Follow the manufacturer's instructions or datasheet for pin connections.
+Install any necessary drivers or libraries required for the GPS module to function. Refer to the manufacturer's documentation or resources for instructions specific to your GPS module.
+     <br><br> Write a script or program in your preferred programming language to communicate with the GPS module and retrieve GPS data. This can involve serial communication (UART) or other methods depending on the module.</p>
+  </div>
+
+
+    <div class="step">
+    <h2>Step 5: Integration and Application</h2>
+    <p>Combine the temperature sensor and GPS module scripts into a single program if desired, ensuring they work together without conflicts.
+Develop the desired functionality or application for your sensor. This could involve storing data, transmitting data to a server or cloud platform, displaying data on a screen, or any other specific requirements.
+<br><br>Test your application to ensure the temperature sensor and GPS module are functioning correctly and providing accurate data.
+Customize and extend your application as needed based on your project requirements and desired features.</p>
+  </div>
+
+    <div class="step">
+    <h2>Step 6: Real Life Application</h2>
+    <p>Powering the Raspberry Pi: Connect your Raspberry Pi to a power source. One convenient option is to use a power bank, which provides portability and flexibility. Ensure that the power bank has sufficient capacity to power the Raspberry Pi for your desired duration.</p>
+      <p>Running the Script: Execute the script you wrote to fetch data from the sensors. The script will now start collecting temperature and GPS data from the connected modules.</p>
+      <p>Storing Data on the SD Card: To ensure data persistence, configure your script to save the collected data to the SD card. This way, the information can be easily accessed and analyzed later. Make sure the script writes the data in a structured format, such as CSV or JSON, for easy processing.</p>
+  </div>
+
+     <div class="step">
+    <h2>Step 7: You Are Ready!</h2>
+    <p>Congratulations! By completing this project, you have become a citizen scientist, actively contributing to data collection and exploration. Share your experiences and results with others who may be interested in similar projects. Document your findings, challenges, and insights, and consider publishing them on platforms dedicated to citizen science. By sharing your journey, you can inspire others to embark on their own scientific adventures.</p>
+       <div class="cont"><a href="https://www.linkedin.com/in/marcus-m%C3%BCntzing-b7b484233/" class="btn continue" style="font-size: 1.5rem">Share your Journey with us!</a></div>
+  </div>
+
+
+  </div>
+  <div id="buttons">
+    <button id="prevBtn" onclick="prevStep()">Previous</button>
+    <button id="nextBtn" onclick="nextStep()">Next</button>
+  </div>
+</div>
+  </section>
+
 
 
      <footer>
@@ -280,6 +370,67 @@
   };
 });
     </script>
+
+  <script>
+var currentStep = 0;
+var steps = document.getElementsByClassName("step");
+
+// Function to update the progress bar
+function updateProgressBar() {
+  var progressBar = document.getElementById("progress");
+  var progressPercentage = ((currentStep + 1) / steps.length) * 100;
+  progressBar.style.width = progressPercentage + "%";
+}
+
+// Function to show the current step with animation
+function showStep() {
+  for (var i = 0; i < steps.length; i++) {
+    steps[i].classList.remove("active", "prev", "next");
+  }
+
+  steps[currentStep].classList.add("active");
+
+  if (currentStep > 0) {
+    steps[currentStep - 1].classList.add("prev");
+  }
+
+  if (currentStep < steps.length - 1) {
+    steps[currentStep + 1].classList.add("next");
+  }
+
+  // Update button visibility
+  document.getElementById("prevBtn").style.display = currentStep === 0 ? "none" : "block";
+  document.getElementById("nextBtn").innerHTML = currentStep === steps.length - 1 ? "Finish" : "Next";
+
+  // Update progress bar
+  updateProgressBar();
+}
+
+// Function to navigate to the previous step
+function prevStep() {
+  if (currentStep > 0) {
+    currentStep--;
+    showStep();
+  }
+}
+
+// Function to navigate to the next step or finish the tutorial
+function nextStep() {
+  if (currentStep < steps.length - 1) {
+    currentStep++;
+    showStep();
+  } else {
+    // Perform any actions needed for finishing the tutorial
+    alert("You are now ready to become a Citizen Scientist! :-)");
+  }
+}
+
+// Show the initial step
+showStep();
+
+
+  </script>
+
 
 
 
