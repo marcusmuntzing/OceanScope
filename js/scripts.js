@@ -99,7 +99,6 @@ function initMap() {
       const temperature = results[i].temp;
       const markerData = {
         "location": latLng,
-        "weight": temperature
       };
       data.push(markerData);
     }
