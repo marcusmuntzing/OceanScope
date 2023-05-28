@@ -107,6 +107,8 @@ function initMap() {
     var heatmap = new google.maps.visualization.HeatmapLayer({
       data: data,
       map: map,
+      opacity: 0.8, // Adjust the opacity value (between 0 and 1) to your preference
+
     });
   }).catch(error => {
     console.error('There was a problem with the fetch operation:', error);

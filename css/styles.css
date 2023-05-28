@@ -951,6 +951,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     flex-direction: column;
 }
 
+
+
 .text-container h1{
     font-size: 4rem;
     margin-bottom: 25px;
@@ -968,6 +970,45 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 .text-container p{
     font-size: 16px;
 }
+
+
+
+.text-container1 {
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    margin-top: 12vh;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.text-container1 h1{
+    font-size: 4rem;
+    margin-bottom: 25px;
+    color: var(--main-color);
+    text-align: center;
+}
+
+.text-container1 h2{
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.text-container1 p{
+    font-size: 16px;
+}
+
+
+
+
 
 .text-section{
     margin-bottom: 50px;
